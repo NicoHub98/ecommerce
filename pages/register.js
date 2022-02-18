@@ -6,7 +6,7 @@ import {
   Button,
   Link,
 } from '@material-ui/core';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Layout from '../components/layout';
 import useStyles from '../utils/styles';
 import NextLink from 'next/link';
@@ -28,9 +28,12 @@ export default function Register() {
   const { redirect } = router.query; //login?redirect=/shipping
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
-  if (userInfo) {
-    router.push('/');
-  }
+  useEffect(() => {
+    if (userInfo) {
+      router.push('/');
+    }
+  }, []);
+
   const classes = useStyles();
 
   const submitHandler = async ({ name, email, password, confirmPassword }) => {
