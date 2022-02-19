@@ -13,7 +13,7 @@ import {
   Typography,
   CircularProgress,
 } from '@material-ui/core';
-import React, { useContext, useEffect, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import Layout from '../../components/layout';
 import NextLink from 'next/link';
 import { Store } from '../../utils/Store';
@@ -24,8 +24,6 @@ import { useRouter } from 'next/router';
 import useStyles from '../../utils/styles';
 import CheckoutWizard from '../../components/CheckoutWizard';
 import { getError } from '../../utils/errors';
-import Cookies from 'js-cookie';
-import { useSnackbar } from 'notistack';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -42,7 +40,6 @@ function reducer(state, action) {
 
 function Order({ params }) {
   const orderId = params.id; // Esta id viene del id en el nombre del archivo
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const classes = useStyles();
   const router = useRouter();
   const { state } = useContext(Store);
