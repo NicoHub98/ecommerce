@@ -50,6 +50,9 @@ function PlaceOrder() {
     if (!paymentMethod) {
       router.push('/payment');
     }
+    if (cartItems.length === 0) {
+      router.push('/cart');
+    }
   }, []);
   const [loading, setLoading] = useState(false);
 
@@ -81,7 +84,7 @@ function PlaceOrder() {
   };
 
   return (
-    <Layout title="Shopping Cart">
+    <Layout title="Place Order">
       <CheckoutWizard activeStep={3}></CheckoutWizard>
       <Typography component="h1" variant="h1">
         Place Order

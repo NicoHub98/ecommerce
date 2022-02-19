@@ -25,6 +25,7 @@ const useStyles = makeStyles({
     marginBottom: 10,
   },
   form: {
+    width: '100%',
     maxWidth: 800,
     margin: '0 auto',
   },
@@ -34,6 +35,9 @@ const useStyles = makeStyles({
   },
   transparentBg: {
     backgroundColor: 'transparent',
+  },
+  error: {
+    color: '#f04040',
   },
 });
 
